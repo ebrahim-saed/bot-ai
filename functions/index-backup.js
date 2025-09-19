@@ -1088,16 +1088,8 @@ BOOKING FORMAT: When user wants to book, respond with:
 BOOKING: SERVICE_ID:TIME
 Example: BOOKING: haircut:14:00
 
-CRITICAL BOOKING RULES:
-- ANY time user mentions booking, scheduling, or wants an appointment at a specific time, you MUST respond with the BOOKING: format
-- Examples that require BOOKING format:
-  * "book me for 10:00" → BOOKING: haircut:10:00  
-  * "I want to book at 2 PM" → BOOKING: haircut:14:00
-  * "schedule me for 3:30" → BOOKING: haircut:15:30
-  * "can you book me for 10:00 AM" → BOOKING: haircut:10:00
-- Convert all times to 24-hour format (10:00, 14:00, 15:30, etc.)
-- Use "haircut" as default service if not specified
-- Do NOT give general booking advice - always use the BOOKING: format for booking requests
+IMPORTANT: If user mentions a specific time (like "2 PM", "3 PM", "book me for 2 PM"), 
+automatically create a booking response in the format above.
 
 AVAILABILITY RESPONSES: When user asks about availability, use the current availability data provided above.
 Present the information in a friendly, readable format with specific time slots.
@@ -1355,27 +1347,3 @@ exports.fixedLocationBot = require('./fixed-location-bot.js').fixedLocationBot;
 
 // Simple MCP-Based Location Bot
 exports.simpleMCPBot = require('./simple-mcp-bot.js').simpleMCPBot;
-
-
-// Universal Barber Bot - Single bot that dynamically handles all barbers
-exports.universalBarberBot = require('./universal-barber-bot.js').universalBarberBot;
-
-
-// Improved Universal Barber Bot with better context handling
-exports.improvedUniversalBarberBot = require('./improved-universal-barber-bot.js').improvedUniversalBarberBot;
-
-
-// Balanced Barber Bot - Smart OpenAI usage with direct logic
-exports.balancedBarberBot = require('./balanced-barber-bot.js').balancedBarberBot;
-
-
-// Smart OpenAI Barber Bot - Dynamic with comprehensive context
-exports.smartOpenAIBarberBot = require('./smart-openai-barber-bot.js').smartOpenAIBarberBot;
-
-
-// Universal Conversation Bot - Barber Focus with Future Product Support
-exports.universalConversationBot = require('./universal-conversation-bot.js').universalConversationBot;
-
-
-// Fixed Universal Conversation Bot - Proper Booking Implementation
-exports.fixedUniversalConversationBot = require('./fixed-universal-conversation-bot.js').fixedUniversalConversationBot;
